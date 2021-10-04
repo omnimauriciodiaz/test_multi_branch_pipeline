@@ -3,20 +3,22 @@ pipeline{
     stages{
         stage('Stage 1'){
             steps{
-                echo 'Step one from stage 1'
-                echo 'Step two from stage 1'
+                echo 'Init all'
+                echo 'Loading'
             }
         }
         stage('Stage 2'){
             steps{
-                echo 'Step one from stage 2'
-                echo 'Step two from stage 2'
+                echo 'Calculating...'
+                script{
+                    def var = 1 + 1 < 2 ? 'Result True way': 'Result False Way'
+                    echo var
+                }
             }
         }
         stage('End stage'){
             steps{
                 echo 'Close all'
-                echo pwd
             }
         }
     }
